@@ -6,7 +6,9 @@ module.exports = {
   siteMetadata: {
     title: "Gatsby Contentful Starter",
     description: "Official Contentful Gatsby Starter",
+    siteUrl: `${process.env.GATSBY_PUBLIC_URL}`
   },
+  pathPrefix: `${process.env.GATSBY_PATH_PREFIX}`,
   plugins: [
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",

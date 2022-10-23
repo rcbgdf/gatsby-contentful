@@ -19,6 +19,7 @@ class RootIndex extends React.Component {
           content={author.shortBio}
         />
         <ArticlePreview posts={posts} />
+        <p>Test, ob push etwas auslöst</p>
       </Layout>
     )
   }

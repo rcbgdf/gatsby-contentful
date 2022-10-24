@@ -30,9 +30,12 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-      - run: env
-      - run: npm i
-      - run: npm run deploy
+      - run: |
+          env
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          npm i
+          npm run deploy
 
       - name: Deploy Github Pages
         uses: JamesIves/github-pages-deploy-action@4.1.0

@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { StaticImage, getImage } from 'gatsby-plugin-image'
 import readingTime from 'reading-time'
 
 import Seo from '../components/seo'
@@ -27,10 +27,10 @@ class BlogPostTemplate extends React.Component {
     const options = {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const { gatsbyImage, description } = node.data.target
+        const { StaticImage, description } = node.data.target
         return (
-           <GatsbyImage
-              image={getImage(gatsbyImage)}
+           <StaticImage
+              image={getImage(StaticImage)}
               alt={description}
            />
          )
@@ -46,7 +46,7 @@ class BlogPostTemplate extends React.Component {
           image={`http:${post.heroImage.resize.src}`}
         />
         <Hero
-          image={post.heroImage?.gatsbyImage}
+          image={post.heroImage?.StaticImage}
           title={post.title}
           content={post.description}
         />
@@ -105,7 +105,7 @@ export const pageQuery = graphql`
       publishDate(formatString: "MMMM Do, YYYY")
       rawDate: publishDate
       heroImage {
-        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
+        StaticImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
         resize(height: 630, width: 1200) {
           src
         }

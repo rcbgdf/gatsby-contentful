@@ -18,7 +18,7 @@ const ArticlePreview = ({ posts }) => {
           return (
             <li key={post.slug}>
               <Link to={`/blog/${post.slug}`} className={styles.link}>
-                <StaticImage alt="" image={post.heroImage.StaticImage} />
+                <StaticImage alt="" image={post.heroImage.GatsbyImage} />
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>
               <div>

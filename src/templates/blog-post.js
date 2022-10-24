@@ -27,10 +27,10 @@ class BlogPostTemplate extends React.Component {
     const options = {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const { StaticImage, description } = node.data.target
+        const { GatsbyImage, description } = node.data.target
         return (
            <StaticImage
-              image={getImage(StaticImage)}
+              image={getImage(GatsbyImage)}
               alt={description}
            />
          )
@@ -46,7 +46,7 @@ class BlogPostTemplate extends React.Component {
           image={`http:${post.heroImage.resize.src}`}
         />
         <Hero
-          image={post.heroImage?.StaticImage}
+          image={post.heroImage?.GatsbyImage}
           title={post.title}
           content={post.description}
         />
@@ -105,7 +105,7 @@ export const pageQuery = graphql`
       publishDate(formatString: "MMMM Do, YYYY")
       rawDate: publishDate
       heroImage {
-        StaticImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
+        GatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
         resize(height: 630, width: 1200) {
           src
         }

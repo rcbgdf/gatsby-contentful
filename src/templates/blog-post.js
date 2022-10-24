@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
-import { StaticImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import readingTime from 'reading-time'
 
 import Seo from '../components/seo'
@@ -29,7 +29,7 @@ class BlogPostTemplate extends React.Component {
         [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { GatsbyImage, description } = node.data.target
         return (
-           <StaticImage
+           <GatsbyImage
               image={getImage(GatsbyImage)}
               alt={description}
            />

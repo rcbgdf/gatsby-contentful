@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import * as styles from './hero.module.css'
@@ -7,7 +7,7 @@ import * as styles from './hero.module.css'
 const Hero = ({ image, title, content }) => (
   <div className={styles.hero}>
     {image && (
-      <StaticImage className={styles.image} alt={title} image={image} />
+      <GatsbyImage className={styles.image} alt={title} image={image} />
     )}
     <div className={styles.details}>
       <h1 className={styles.title}>{title}</h1>

@@ -33,6 +33,8 @@ jobs:
           cache-dependency-path: package-lock.json
       - run: |
           env
+          git config user.name toastmaster
+          git config user.email toastmaster@rc-bgdf.de
           git config --list
           npm i
           npm run deploy

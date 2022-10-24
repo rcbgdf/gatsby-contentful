@@ -33,6 +33,7 @@ jobs:
           cache-dependency-path: package-lock.json
       - run: |
           env
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git config user.name toastmaster
           git config user.email toastmaster@rc-bgdf.de
           git config --list

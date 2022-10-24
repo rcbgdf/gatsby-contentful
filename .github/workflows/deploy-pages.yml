@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: package.json
       - run: |
           env
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
@@ -38,6 +38,7 @@ jobs:
           git config user.email toastmaster@rc-bgdf.de
           git config --list
           npm i
+          npm run clean
           npm run deploy
           tree public
 
